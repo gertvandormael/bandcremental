@@ -1,28 +1,88 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view />
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/* CSS Reset*/
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+  }
+
+/* Positioning */
+  #app {
+    display: flex;
+    justify-content: center;
+  }
+
+/* Fonts and layout */
+  body {
+    margin: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    background: #56965d;
+    color: #ebebeb;
+  }
+
+  h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 26px;
+    color: #ff6fd2;
+    margin-top: 5px;
+  }
+
+  h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 22px;
+    color: #cbdbfc;
+  }
+
+  h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 16px;
+    color: #ff6fd2;
+  }
+
+  .header, .band, .skill, .info, .upgrades-song, .button, .gear-upgrades, .shows, .cooldown {
+    margin-bottom: 10px;
+  }
+
+  h1, h2, h3 {
+	text-shadow:
+    -2px -2px 0 #6e0054,
+		2px -2px 0 #6e0054,
+		-2px 2px 0 #6e0054,
+		2px 2px 0 #6e0054;
+  }
+
+/* Styling for all components */
+  img {
+    max-width: 250px;
+    max-width: 250px;
+  }
+
+  button {
+    font-family: 'Press Start 2P', cursive;
+    background: #ff6fd2;
+    color: #cbdbfc;
+    border: none;
+    width: 100px;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  button:disabled {
+    background: #969696
+  }
+
+  button:hover:enabled {
+    background: #cbdbfc;
+    color: #ff6fd2;
+  }
+
+/* Media queries */
+
 </style>
