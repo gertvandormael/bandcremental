@@ -1,7 +1,13 @@
 <template>
   <div class="game">
     <Nav />
-    <Clicker />
+    <div class="clicker">
+      <Clicker />
+    </div>
+    <div class="upgrades">
+      <h1>Upgrades</h1>
+      <SongUpgrades />
+    </div>
   </div>
 </template>
 
@@ -9,12 +15,12 @@
 // @ is an alias to /src
 import Nav from "@/components/Nav.vue";
 import Clicker from "@/components/Clicker.vue";
+import SongUpgrades from "@/components/SongUpgrades.vue"
 
 export default {
   name: "Game",
   components: {
-    Nav,
-    Clicker
+    Nav, Clicker, SongUpgrades
   }
 };
 </script>
