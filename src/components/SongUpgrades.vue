@@ -18,6 +18,7 @@
             src="../assets/song-unlocked.png"
             alt="song unlocked"
           >
+          <audio src="../assets/songs/smoke-on-the-water"></audio>
         </div>
         <h3 :class="{ locked: !songUpgrade.songLearned }">{{ songUpgrade.name }}</h3>
       </div>
@@ -44,12 +45,18 @@
 import { mapState } from "vuex";
 export default {
   computed: {
-    ...mapState(["incremental","songUpgrades"]),
+    ...mapState(["incremental", "songUpgrades"])
   },
 
   methods: {
     learnSong(song) {
       this.$store.commit("learnSong", song);
+      this.playSong(song);
+    },
+
+    playSong(song) {
+      var audio = new Audio(require("../assets/songs/" + song.audio));
+      audio.play();
     }
   }
 };

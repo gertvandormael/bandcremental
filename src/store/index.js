@@ -17,6 +17,7 @@ export default new Vuex.Store({
 			{
 				id: 0,
 				name: "Smoke On The Water - Deep Purple",
+				audio: "smoke-on-the-water.wav",
 				requiredSkill: 10,
 				clickPowerGain: 1,
 				idlePowerGain: 0.5,
@@ -25,9 +26,19 @@ export default new Vuex.Store({
 			{
 				id: 1,
 				name: "Highway to Hell - AC/DC",
+				audio: "highway-to-hell.wav",
 				requiredSkill: 50,
 				clickPowerGain: 5,
 				idlePowerGain: 2,
+				songLearned: false
+			},
+			{
+				id: 2,
+				name: "The Trooper - Iron Maiden",
+				audio: "the-trooper.wav",
+				requiredSkill: 100,
+				clickPowerGain: 10,
+				idlePowerGain: 5,
 				songLearned: false
 			}
 		],
