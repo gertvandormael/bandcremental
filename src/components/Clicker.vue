@@ -19,12 +19,18 @@
         </ul>
       </div>
     </div>
+    <ClickerButtons />
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
+import ClickerButtons from "./ClickerButtons.vue";
 export default {
+  components: {
+    ClickerButtons
+  },
+
   computed: {
     ...mapState(["incremental"])
     // ...mapActions(["idleGains"])
