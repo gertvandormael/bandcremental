@@ -45,19 +45,11 @@ import { mapState } from "vuex";
 export default {
   computed: {
     ...mapState(["incremental","songUpgrades"]),
-
-    skillCheck() {
-      if (this.incremental.skill < 10) {
-        return true;
-      } else {
-        return false;
-      }
-    }
   },
 
   methods: {
-    learnSong(payload) {
-      this.$store.commit("learnSong", payload);
+    learnSong(song) {
+      this.$store.commit("learnSong", song);
     }
   }
 };
@@ -93,7 +85,5 @@ export default {
     max-width: 50px;
     max-height: 50px;
     margin-right: 2px;
-  }
-
-
-</style>
+  }  
+  </style>
