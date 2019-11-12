@@ -3,12 +3,12 @@
     <BackToGame />
     <h2>Cheats</h2>
     <ul>
-      <li>Skill: {{ incremental.skill.toLocaleString('nl-BE') }}</li>
-      <li>Click power: {{ incremental.clickPower.toLocaleString('nl-BE') }}</li>
-      <li>Idle power: {{ incremental.idlePower.toLocaleString('nl-BE') }}</li>
-      <li>Fame: {{ incremental.fame.toLocaleString('nl-BE') }}</li>
+      <li>Skill: {{ notation(incremental.skill) }}</li>
+      <li>Click power: {{ notation(incremental.clickPower) }}</li>
+      <li>Idle power: {{ notation(incremental.idlePower) }}</li>
+      <li>Fame: {{ notation(incremental.fame) }}</li>
     </ul>
-    
+
     <button @click="cheatSkill">Gain 1.000 skill</button>
     <button @click="cheatClickPower">Gain 100 click power</button>
     <button @click="cheatIdlePower">Gain 100 idle power</button>
@@ -29,6 +29,10 @@ export default {
   },
 
   methods: {
+    notation(number) {
+      return number.toLocaleString("nl-BE");
+    },
+
     cheatSkill() {
       this.$store.dispatch("cheatSkill");
     },

@@ -9,14 +9,13 @@
       <div class="stats">
         <h2>Resources</h2>
         <ul class="skill">
-          <li>Skill {{ incrementalSkill }}</li>
-          <li>Cash {{ incremental.cash }} </li>
-          <li>Fame {{ incremental.fame }} </li>
+          <li>Skill: {{ notation(incremental.skill) }}</li>
+          <li>Fame: {{ notation(incremental.fame) }} </li>
         </ul>
         <h2>Info</h2>
         <ul>
-          <li>Click power: {{ incremental.clickPower }}</li>
-          <li>Idle gain: {{ incremental.idlePower }}</li>
+          <li>Click power: {{ notation(incremental.clickPower) }}</li>
+          <li>Idle gain: {{ notation(incremental.idlePower) }}</li>
         </ul>
       </div>
     </div>
@@ -34,15 +33,15 @@ export default {
 
   computed: {
     ...mapState(["incremental"]),
-
-    incrementalSkill() {
-      return this.incremental.skill.toLocaleString("nl-BE");
-    }
   },
 
   methods: {
     increaseSkill() {
       this.$store.dispatch("increaseSkill");
+    },
+
+    notation(number) {
+      return number.toLocaleString("nl-BE");
     }
   },
 

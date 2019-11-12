@@ -29,7 +29,7 @@
         </button>
         <div class="requirements">
           <ul>
-            <li>Gain {{ Math.round(incremental.skill * show.multiplier) }} fame (20% of your current skill)</li>
+            <li>Gain {{ fameGain(show.multiplier) }} fame (20% of your current skill)</li>
             <li>Has a {{ show.cooldownDuration }} seconds cooldown</li>
           </ul>
         </div>
@@ -71,6 +71,10 @@ export default {
         this.currentCooldown = null;
         this.$store.commit("cooldownReset", show)
       }
+    },
+
+    fameGain(multiplier) {
+      return Math.round(this.incremental.skill * multiplier).toLocaleString("nl-BE")
     },
   },
 };

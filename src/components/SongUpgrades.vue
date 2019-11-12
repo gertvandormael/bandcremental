@@ -31,8 +31,8 @@
         >Learn song!</button>
         <div class="requirements">
           <ul>
-            <li>Requires {{ songUpgrade.requiredSkill }} skill</li>
-            <li>Gain {{ songUpgrade.clickPowerGain }} click power and {{ songUpgrade.idlePowerGain }} idle power</li>
+            <li>Requires {{ notation(songUpgrade.requiredSkill) }} skill</li>
+            <li>Gain {{ notation(songUpgrade.clickPowerGain) }} click power and {{ notation(songUpgrade.idlePowerGain) }} idle power</li>
           </ul>
         </div>
       </div>
@@ -48,6 +48,10 @@ export default {
   },
 
   methods: {
+    notation(number) {
+      return number.toLocaleString("nl-BE");
+    },
+
     learnSong(song) {
       this.$store.commit("learnSong", song);
       this.playSong(song);
