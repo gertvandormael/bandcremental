@@ -89,9 +89,11 @@
   }
 
 /* Media queries */
+  @media (min-width: 768px) {
+    .container {
+      display: flex;
+    }
+  }
 
-.container {
-  display: flex;
-}
 
 </style>

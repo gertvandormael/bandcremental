@@ -1,7 +1,7 @@
 <template>
-<div >
+<div class="home">
   <Nav />
-  <Cheats />
+  <HowToPlay />
   <BackToGame />
 </div>
 </template>
@@ -9,13 +9,13 @@
 <script>
 // @ is an alias to /src
 import Nav from "@/components/Nav.vue";
-import Cheats from "@/components/Cheats.vue"
+import HowToPlay from "@/components/HowToPlay.vue";
 import BackToGame from "@/components/BackToGame.vue";
 
 export default {
-  name: "cheats",
+  name: "howtoplay",
   components: {
-    Nav, BackToGame, Cheats
+    Nav, BackToGame, HowToPlay
   }
 };
 </script>

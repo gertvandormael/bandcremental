@@ -21,6 +21,10 @@ export default {};
 </script>
 
 <style scoped>
+  .back-to-game {
+    margin-top: 20px;
+  }
+
   img {
     max-width: 50px;
     max-height: 50px;
@@ -38,5 +42,6 @@ export default {};
     height: auto;
     margin-bottom: 25px;
   }
+
 
 </style>

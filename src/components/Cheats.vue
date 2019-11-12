@@ -1,6 +1,5 @@
 <template>
   <div class="cheats">
-    <BackToGame />
     <h2>Cheats</h2>
     <ul>
       <li>Skill: {{ notation(incremental.skill) }}</li>
@@ -17,13 +16,8 @@
 </template>
 
 <script>
-import BackToGame from "@/components/BackToGame.vue";
 import { mapState } from "vuex";
 export default {
-  components: {
-    BackToGame
-  },
-
   computed: {
     ...mapState(["incremental", "songUpgrades", "shows"]),
   },

@@ -1,9 +1,9 @@
 <template>
   <div class="options">
     <router-link
-      to="/settings"
+      to="/howtoplay"
       tag="button"
-    >Settings</router-link>
+    >How to play</router-link>
 
     <router-link
       to="/stats"
@@ -14,7 +14,11 @@
       to="/cheats"
       tag="button"
     >Cheats</router-link>
-    
+
+    <router-link
+      to="/credits"
+      tag="button"
+    >Credits</router-link>
 
   </div>
 

@@ -96,4 +96,9 @@ export default {
     max-height: 50px;
     margin-right: 2px;
   }  
+
+  .song {
+    width: 400px;
+  }
+
   </style>

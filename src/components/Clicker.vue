@@ -84,7 +84,7 @@ export default {
   }
 
 /* Media queries */
-  /* @media (min-width: 768px) { */
+  @media (min-width: 998px) {
     .band {
       display: flex;
       justify-content: space-between;
@@ -93,9 +93,6 @@ export default {
     .data {
       margin-left: 25px;
     }
-  /* } */
-
-
-
-
+  }
+  
 </style>
