@@ -23,6 +23,7 @@
   body {
     margin: 5px;
     font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
     background: #56965d;
     color: #ebebeb;
   }

@@ -18,7 +18,6 @@
             src="../assets/song-unlocked.png"
             alt="song unlocked"
           >
-          <audio src="../assets/songs/smoke-on-the-water"></audio>
         </div>
         <h3 :class="{ locked: !songUpgrade.songLearned }">{{ songUpgrade.name }}</h3>
       </div>

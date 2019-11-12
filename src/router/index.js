@@ -22,13 +22,18 @@ const routes = [
     path: '/stats',
     name: 'stats',
     component: () => import(/* webpackChunkName: "about" */ '../views/Stats.vue')
+  },
+  {
+    path: '/cheats',
+    name: 'cheats',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Cheats.vue')
+  },
 
-  }
+
 ]
 
 const router = new VueRouter({
   routes,
-  test: "test"
 })
 
 export default router

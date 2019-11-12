@@ -6,12 +6,13 @@
       @click="increaseSkill"
     >
     <div class="data">
-      <div class="skill">
-        <h3>Skill {{ incremental.skill }}</h3>
-        <h3>Cash {{ incremental.cash }} </h3>
-        <h3>Fame {{ incremental.fame }} </h3>
-      </div>
       <div class="stats">
+        <h2>Resources</h2>
+        <ul class="skill">
+          <li>Skill {{ incrementalSkill }}</li>
+          <li>Cash {{ incremental.cash }} </li>
+          <li>Fame {{ incremental.fame }} </li>
+        </ul>
         <h2>Info</h2>
         <ul>
           <li>Click power: {{ incremental.clickPower }}</li>
@@ -32,8 +33,11 @@ export default {
   },
 
   computed: {
-    ...mapState(["incremental"])
-    // ...mapActions(["idleGains"])
+    ...mapState(["incremental"]),
+
+    incrementalSkill() {
+      return this.incremental.skill.toLocaleString("nl-BE");
+    }
   },
 
   methods: {

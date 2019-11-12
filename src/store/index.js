@@ -20,7 +20,7 @@ export default new Vuex.Store({
 				audio: "smoke-on-the-water.wav",
 				requiredSkill: 10,
 				clickPowerGain: 1,
-				idlePowerGain: 0.5,
+				idlePowerGain: 1,
 				songLearned: false
 			},
 			{
@@ -48,7 +48,7 @@ export default new Vuex.Store({
 				id: 0,
 				name: "Local bar",
         cooldownDuration: 60,
-				multiplier: 0.2,
+				multiplier: 0.20,
 				active: false
       },
 		],
@@ -96,7 +96,23 @@ export default new Vuex.Store({
 
     cooldownReset(state, show) {
       show.active = false
-    }
+		},
+		
+		cheatSkill(state) {
+			state.incremental.skill += 1000;
+		},
+
+		cheatClickPower(state) {
+			state.incremental.clickPower += 100;
+		},
+
+		cheatIdlePower(state) {
+			state.incremental.idlePower += 100
+		},
+
+		cheatFame(state) {
+			state.incremental.fame += 1000;
+		},
 	},
 
 	actions: {
@@ -108,7 +124,24 @@ export default new Vuex.Store({
 			setInterval(() => {
 				commit("idleGains");
 			}, 1000);
-    },
+		},
+		
+		cheatSkill({ commit }) {
+			commit("cheatSkill")
+		},
+
+		cheatClickPower({ commit }) {
+			commit("cheatClickPower");
+		},
+
+		cheatIdlePower({ commit }) {
+			commit("cheatIdlePower")
+		},
+
+		cheatFame({ commit }) {
+			commit("cheatFame")
+		},
+
 	},
 
 	getters: {},
