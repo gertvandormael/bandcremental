@@ -12,6 +12,7 @@ export default {};
 <style scoped>
   .header {
     margin-bottom: 15px;
+    width: 300px;
   }
   
   @media (min-width: 992px) { 

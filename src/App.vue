@@ -14,10 +14,6 @@
   }
 
 /* Positioning */
-  #app {
-    display: flex;
-    justify-content: center;
-  }
 
 /* Fonts and layout */
   body {
@@ -30,20 +26,20 @@
 
   h1 {
     font-family: 'Press Start 2P', cursive;
-    font-size: 26px;
+    font-size: 1.7rem;
     color: #ff6fd2;
     margin-top: 5px;
   }
 
   h2 {
     font-family: 'Press Start 2P', cursive;
-    font-size: 22px;
+    font-size: 1.4rem;
     color: #cbdbfc;
   }
 
   h3 {
     font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
+    font-size: 1rem;
     color: #ff6fd2;
   }
 
@@ -59,11 +55,7 @@
 		2px 2px 0 #6e0054;
   }
 
-/* Styling for all components */
-  .upgrades {
-    width: 500px;
-  }
-  
+/* Styling for all components */  
   img {
     max-width: 250px;
     max-width: 250px;
@@ -90,9 +82,19 @@
 
 /* Media queries */
   @media (min-width: 768px) {
+    #app {
+    display: flex;
+    justify-content: center;
+  }
+
     .container {
       display: flex;
     }
+
+    .upgrades {
+      width: 500px;
+    }
+
   }
 
 

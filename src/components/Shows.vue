@@ -82,7 +82,7 @@ export default {
 
 <style scoped>
   .shows {
-    width: 400px;
+    width: 350px;
   }
 
   .info, .button {

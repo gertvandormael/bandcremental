@@ -98,7 +98,7 @@ export default {
   }  
 
   .song {
-    width: 400px;
+    width: 350px;
   }
 
   </style>

@@ -46,9 +46,10 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
   button {
-    width: 200px;
+    width: 170px;
     height: 50px;
+    margin-top: 10px;
   }
 </style>

@@ -37,7 +37,7 @@ export default {};
   }
 
   button {
-    width: 150px;
+    width: 125px;
     height: 50px;
   }
 </style>>
