@@ -11,7 +11,7 @@
         <ul class="skill">
           <li>Skill: {{ notation(incremental.skill) }}</li>
           <li>Fame: {{ notation(incremental.fame) }} </li>
-          <li>Cash: {{ notation(incremental.cash) }}</li>
+          <li>Money: {{ notation(incremental.money) }}</li>
         </ul>
         <h2>Info</h2>
         <ul>

@@ -9,8 +9,8 @@ export default new Vuex.Store({
 			skill: 0,
 			clickPower: 1,
 			idlePower: 0,
-			fame: 0,
-			cash: 0
+			fame: 500,
+			money: 0
 		},
 
 		songUpgrades: [
@@ -47,66 +47,76 @@ export default new Vuex.Store({
 			{
 				id: 0,
 				name: "Local bar",
-        cooldownDuration: 60,
-				multiplier: 0.20,
+				cooldownDuration: 60,
+				multiplier: 0.2,
 				active: false
-      },
-		],
-
-		merchandise : [
-			{
-				id: 0,
-				name: "merch 1",
-				cashGain: 100,
-				fameRequired: 500,
 			}
 		],
-		
+
+		merchandising: [
+			{
+				id: 0,
+				name: "placeholder",
+				moneyGain: 100,
+				fameRequired: 500,
+				fameCost: 25,
+				staff: 0,
+				img: "placeholder.png"
+			}
+			// {
+			// 	id: 1,
+			// 	name: "placeholder 2",
+			// 	moneyGain: 500,
+			// 	fameRequired: 1000,
+			// 	fameCost: 100,
+			// 	img: "placeholder.png"
+			// }
+		],
+
 		stats: {
 			timesClicked: 0,
 			skillGainClick: 0,
 			skillGainIdle: 0,
 			songsLearned: 0,
 			showsPlayed: 0,
-			fameGainedShows: 0,
+			fameGainedShows: 0
 		}
 	},
 
 	mutations: {
 		increaseSkill(state) {
 			state.incremental.skill += state.incremental.clickPower;
-			state.stats.timesClicked ++;
+			state.stats.timesClicked++;
 			state.stats.skillGainClick += state.incremental.clickPower;
-
 		},
 
 		idleGains(state) {
 			state.incremental.skill += state.incremental.idlePower;
-			state.stats.skillGainIdle += state.incremental.idlePower
+			state.stats.skillGainIdle += state.incremental.idlePower;
 		},
 
 		learnSong(state, song) {
 			state.incremental.clickPower += song.clickPowerGain;
 			state.incremental.idlePower += song.idlePowerGain;
 			song.songLearned = true;
-			state.stats.songsLearned ++;
+			state.stats.songsLearned++;
 		},
 
 		playShow(state, show) {
 			state.incremental.fame += Math.round(
 				state.incremental.skill * show.multiplier
-      );
+			);
 			show.active = true;
-			state.stats.showsPlayed ++;
+			state.stats.showsPlayed++;
 			state.stats.fameGainedShows += Math.round(
 				state.incremental.skill * show.multiplier
-      );
-    },
-
-    cooldownReset(state, show) {
-      show.active = false
+			);
 		},
-		
+
+		cooldownReset(state, show) {
+			show.active = false;
+		},
+
 		cheatSkill(state) {
 			state.incremental.skill += 1000;
 		},
@@ -116,12 +126,16 @@ export default new Vuex.Store({
 		},
 
 		cheatIdlePower(state) {
-			state.incremental.idlePower += 100
+			state.incremental.idlePower += 100;
 		},
 
 		cheatFame(state) {
 			state.incremental.fame += 1000;
 		},
+
+		hireStaff(state, { merch, amount }) {
+			merch.staff += amount;
+		}
 	},
 
 	actions: {
@@ -134,9 +148,9 @@ export default new Vuex.Store({
 				commit("idleGains");
 			}, 1000);
 		},
-		
+
 		cheatSkill({ commit }) {
-			commit("cheatSkill")
+			commit("cheatSkill");
 		},
 
 		cheatClickPower({ commit }) {
@@ -144,13 +158,16 @@ export default new Vuex.Store({
 		},
 
 		cheatIdlePower({ commit }) {
-			commit("cheatIdlePower")
+			commit("cheatIdlePower");
 		},
 
 		cheatFame({ commit }) {
-			commit("cheatFame")
+			commit("cheatFame");
 		},
 
+		hireStaff({ commit }, { merch, amount }) {
+			commit("hireStaff", { merch, amount });
+		}
 	},
 
 	getters: {},
