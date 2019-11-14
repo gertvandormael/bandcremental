@@ -9,7 +9,7 @@
 <script>
 // @ is an alias to /src
 import Nav from "@/components/Nav.vue";
-import Credits from "@/components/Credits.vue";
+import Credits from "@/components/credits/Credits.vue";
 import BackToGame from "@/components/BackToGame.vue";
 
 export default {

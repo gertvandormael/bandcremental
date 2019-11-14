@@ -1,6 +1,6 @@
 <template>
-  <div class="song-upgrades">
-    <h2>Songs</h2>
+  <div class="songs">
+    <h1>Songs</h1>
     <div
       class="song"
       v-for="songUpgrade in songUpgrades"
@@ -10,12 +10,12 @@
         <div class="pic">
           <img
             v-if="!songUpgrade.songLearned"
-            src="../assets/song-locked.png"
+            src="../../assets/song-locked.png"
             alt="song locked"
           >
           <img
             v-if="songUpgrade.songLearned"
-            src="../assets/song-unlocked.png"
+            src="../../assets/song-unlocked.png"
             alt="song unlocked"
           >
         </div>
@@ -58,7 +58,7 @@ export default {
     },
 
     playSong(song) {
-      var audio = new Audio(require("../assets/songs/" + song.audio));
+      var audio = new Audio(require("../../assets/songs/" + song.audio));
       audio.play();
     }
   }

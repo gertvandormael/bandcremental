@@ -1,7 +1,7 @@
 <template>
   <div class="band">
     <img
-      src="../assets/band.png"
+      src="../../assets/band.png"
       alt="band image"
       @click="increaseSkill"
     >
@@ -11,6 +11,7 @@
         <ul class="skill">
           <li>Skill: {{ notation(incremental.skill) }}</li>
           <li>Fame: {{ notation(incremental.fame) }} </li>
+          <li>Cash: {{ notation(incremental.cash) }}</li>
         </ul>
         <h2>Info</h2>
         <ul>
@@ -32,7 +33,7 @@ export default {
   },
 
   computed: {
-    ...mapState(["incremental"]),
+    ...mapState(["incremental"])
   },
 
   methods: {

@@ -9,8 +9,8 @@ export default new Vuex.Store({
 			skill: 0,
 			clickPower: 1,
 			idlePower: 0,
-			cash: 0,
-			fame: 0
+			fame: 0,
+			cash: 0
 		},
 
 		songUpgrades: [
@@ -52,6 +52,15 @@ export default new Vuex.Store({
 				active: false
       },
 		],
+
+		merchandise : [
+			{
+				id: 0,
+				name: "merch 1",
+				cashGain: 100,
+				fameRequired: 500,
+			}
+		],
 		
 		stats: {
 			timesClicked: 0,
@@ -60,7 +69,7 @@ export default new Vuex.Store({
 			songsLearned: 0,
 			showsPlayed: 0,
 			fameGainedShows: 0,
-		},
+		}
 	},
 
 	mutations: {

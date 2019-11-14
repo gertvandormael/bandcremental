@@ -7,20 +7,20 @@
     </div>
 
     <div class="container">
-      <div class="upgrades">
-        <h1>Upgrades</h1>
-        <SongUpgrades />
-      </div>
+      <SongUpgrades />
       <Shows />
     </div>
+
+    <Merchandise />
   </div>
 </template>
 
 <script>
 import Nav from "@/components/Nav.vue";
-import Clicker from "@/components/Clicker.vue";
-import SongUpgrades from "@/components/SongUpgrades.vue";
-import Shows from "@/components/Shows.vue";
+import Clicker from "@/components/game/Clicker.vue";
+import SongUpgrades from "@/components/game/SongUpgrades.vue";
+import Shows from "@/components/game/Shows.vue";
+import Merchandise from "@/components/game/Merchandise.vue";
 
 export default {
   name: "Game",
@@ -28,7 +28,8 @@ export default {
     Nav,
     Clicker,
     SongUpgrades,
-    Shows
+    Shows,
+    Merchandise
   }
 };
 </script>

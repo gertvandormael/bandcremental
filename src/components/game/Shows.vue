@@ -7,12 +7,12 @@
       :key="show.id"
     >
       <img
-        src="../assets/show-locked.png"
+        src="../../assets/show-locked.png"
         alt="show locked"
         v-if="!show.active"
       />
       <img
-        src="../assets/band2.gif"
+        src="../../assets/band2.gif"
         alt="show unlocked"
         v-if="show.active"
       />
