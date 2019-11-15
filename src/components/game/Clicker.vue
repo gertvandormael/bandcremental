@@ -10,8 +10,8 @@
         <h2>Resources</h2>
         <ul class="skill">
           <li>Skill: {{ notation(incremental.skill) }}</li>
-          <li>Fame: {{ notation(incremental.fame) }} </li>
           <li>Money: {{ notation(incremental.money) }}</li>
+          <li>Fame: {{ notation(incremental.fame) }} </li>
         </ul>
         <h2>Info</h2>
         <ul>

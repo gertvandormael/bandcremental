@@ -6,10 +6,17 @@
       v-for="merch in merchandising"
       :key="merch.id"
     >
-    <div class="locked" v-if="incremental.fame < merch.fameRequired">
-      <h2>Locked: Requires {{ merch.fameRequired }} fame</h2>
-    </div>
-      <div class="unlocked" v-if="incremental.fame >= merch.fameRequired">
+      <div
+        class="locked"
+        v-if="!merch.unlocked"
+      >
+        <h2>Locked: Requires {{ merch.moneyRequired }} money</h2>
+        <button @click="unlockMerch(merch, merch.moneyRequired)" :disabled="moneycheck(merch.moneyRequired)">Unlock</button>
+      </div>
+      <div
+        class="unlocked"
+        v-if="merch.unlocked"
+      >
         <div class="info">
           <img
             :src="require(`@/assets/` + merch.img)"
@@ -20,7 +27,7 @@
         <div class="staff">
           <ul>
             <li>Staff selling {{ merch.name }}: {{ merch.staff }}</li>
-            <li>Money gained per delivery: {{ merch.moneyGain * merch.staff }} </li>
+            <li>Fame gained per delivery: {{ merch.fameGain * merch.staff }} </li>
           </ul>
           <button @click="hireStaff(merch, 1)">x1</button>
           <button @click="hireStaff(merch, 25)">x25</button>
@@ -40,8 +47,18 @@ export default {
   },
 
   methods: {
+    unlockMerch(merch, amount) {
+      this.$store.commit("unlockMerch", { merch, amount });
+    },
+
+    moneycheck(money) {
+      if (this.incremental.money < money) {
+        return true
+      }
+    },
+
     hireStaff(merch, amount) {
-      this.$store.dispatch("hireStaff", {merch, amount})
+      this.$store.dispatch("hireStaff", { merch, amount });
     }
   }
 };
@@ -62,7 +79,7 @@ img {
   margin-right: 10px;
 }
 
-button {
+.staff button {
   height: 60px;
   width: 60px;
 }

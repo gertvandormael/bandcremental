@@ -9,7 +9,7 @@ export default new Vuex.Store({
 			skill: 0,
 			clickPower: 1,
 			idlePower: 0,
-			fame: 500,
+			fame: 0,
 			money: 0
 		},
 
@@ -57,9 +57,10 @@ export default new Vuex.Store({
 			{
 				id: 0,
 				name: "placeholder",
-				moneyGain: 100,
-				fameRequired: 500,
-				fameCost: 25,
+				unlocked: false,
+				fameGain: 10,
+				moneyRequired: 100,
+				moneyCost: 25,
 				staff: 0,
 				img: "placeholder.png"
 			}
@@ -79,7 +80,7 @@ export default new Vuex.Store({
 			skillGainIdle: 0,
 			songsLearned: 0,
 			showsPlayed: 0,
-			fameGainedShows: 0
+			moneyGainedShows: 0
 		}
 	},
 
@@ -103,12 +104,12 @@ export default new Vuex.Store({
 		},
 
 		playShow(state, show) {
-			state.incremental.fame += Math.round(
+			state.incremental.money += Math.round(
 				state.incremental.skill * show.multiplier
 			);
 			show.active = true;
 			state.stats.showsPlayed++;
-			state.stats.fameGainedShows += Math.round(
+			state.stats.moneyGainedShows += Math.round(
 				state.incremental.skill * show.multiplier
 			);
 		},
@@ -133,8 +134,14 @@ export default new Vuex.Store({
 			state.incremental.fame += 1000;
 		},
 
+		unlockMerch(state, { merch, amount }) {
+			merch.unlocked = true;
+			state.incremental.money -= amount
+		},
+
 		hireStaff(state, { merch, amount }) {
 			merch.staff += amount;
+			state.incremental.money -= 100
 		}
 	},
 
