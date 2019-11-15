@@ -34,7 +34,7 @@
           </ul>
         </div>
       </div>
-      <div class="cooldown" v-if="currentCooldown != null">
+      <div class="cooldown" v-if="show.active">
         <h3>Cooldown: {{ currentCooldown }}</h3>
       </div>
     </div>

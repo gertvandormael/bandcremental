@@ -101,4 +101,11 @@ export default {
     width: 350px;
   }
 
+  @media (min-width: 998px) { 
+    .song {
+      width: auto;
+    }
+  }
+
+
   </style>

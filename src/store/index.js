@@ -9,6 +9,7 @@ export default new Vuex.Store({
 			skill: 0,
 			clickPower: 1,
 			idlePower: 0,
+			famePower: 0,
 			fame: 0,
 			money: 0
 		},
@@ -47,7 +48,7 @@ export default new Vuex.Store({
 			{
 				id: 0,
 				name: "Local bar",
-				cooldownDuration: 60,
+				cooldownDuration: 15,
 				multiplier: 0.2,
 				active: false
 			}
@@ -57,21 +58,23 @@ export default new Vuex.Store({
 			{
 				id: 0,
 				name: "placeholder",
-				unlocked: false,
 				fameGain: 10,
 				moneyRequired: 100,
 				moneyCost: 25,
 				staff: 0,
-				img: "placeholder.png"
+				img: "placeholder.png",
+				unlocked: false,
+			},
+			{
+				id: 1,
+				name: "another placeholder",
+				fameGain: 50,
+				moneyRequired: 500,
+				moneyCost: 50,
+				staff: 0,
+				img: "placeholder.png",
+				unlocked: false,
 			}
-			// {
-			// 	id: 1,
-			// 	name: "placeholder 2",
-			// 	moneyGain: 500,
-			// 	fameRequired: 1000,
-			// 	fameCost: 100,
-			// 	img: "placeholder.png"
-			// }
 		],
 
 		stats: {
@@ -130,8 +133,8 @@ export default new Vuex.Store({
 			state.incremental.idlePower += 100;
 		},
 
-		cheatFame(state) {
-			state.incremental.fame += 1000;
+		cheatMoney(state) {
+			state.incremental.money += 1000;
 		},
 
 		unlockMerch(state, { merch, amount }) {
@@ -141,8 +144,13 @@ export default new Vuex.Store({
 
 		hireStaff(state, { merch, amount }) {
 			merch.staff += amount;
-			state.incremental.money -= 100
-		}
+			state.incremental.money -= merch.moneyCost
+			state.incremental.famePower += merch.fameGain * amount
+		},
+
+		fameIdleGains(state) {
+			state.incremental.fame +=  state.incremental.famePower
+		},
 	},
 
 	actions: {
@@ -168,12 +176,18 @@ export default new Vuex.Store({
 			commit("cheatIdlePower");
 		},
 
-		cheatFame({ commit }) {
-			commit("cheatFame");
+		cheatMoney({ commit }) {
+			commit("cheatMoney");
 		},
 
 		hireStaff({ commit }, { merch, amount }) {
 			commit("hireStaff", { merch, amount });
+		},
+
+		fameIdleGains({ commit }) {
+			setInterval(() => {
+				commit("fameIdleGains")
+			}, 1000);
 		}
 	},
 

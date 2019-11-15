@@ -1,6 +1,6 @@
 <template>
   <div class="merchandise">
-    <h1>Merchandising</h1>
+    <h1>Merchandise</h1>
     <div
       class="merch"
       v-for="merch in merchandising"
@@ -10,8 +10,14 @@
         class="locked"
         v-if="!merch.unlocked"
       >
-        <h2>Locked: Requires {{ merch.moneyRequired }} money</h2>
-        <button @click="unlockMerch(merch, merch.moneyRequired)" :disabled="moneycheck(merch.moneyRequired)">Unlock</button>
+        <button
+          @click="unlockMerch(merch, merch.moneyRequired)"
+          :disabled="unlockCheck(merch.moneyRequired)"
+        >Unlock merch</button>
+        <ul>
+          <li>Unlock for € {{ merch.moneyRequired }}</li>
+          <li>Sell merch to become more famous!</li>
+        </ul>
       </div>
       <div
         class="unlocked"
@@ -27,12 +33,24 @@
         <div class="staff">
           <ul>
             <li>Staff selling {{ merch.name }}: {{ merch.staff }}</li>
-            <li>Fame gained per delivery: {{ merch.fameGain * merch.staff }} </li>
+            <li>Fame gained per second: {{ merch.fameGain * merch.staff }} </li>
           </ul>
-          <button @click="hireStaff(merch, 1)">x1</button>
-          <button @click="hireStaff(merch, 25)">x25</button>
-          <button @click="hireStaff(merch, 50)">x50</button>
-          <button @click="hireStaff(merch, 100)">x100</button>
+          <button
+            @click="hireStaff(merch, 1)"
+            :disabled="staffCheck(merch, 1)"
+          >+1 for €{{ merch.moneyCost * 1 }}</button>
+          <button
+            @click="hireStaff(merch, 5)"
+            :disabled="staffCheck(merch, 5)"
+          >+5 for €{{ merch.moneyCost * 5 }}</button>
+          <button
+            @click="hireStaff(merch, 10)"
+            :disabled="staffCheck(merch, 10)"
+          >+10 for €{{ merch.moneyCost * 10 }}</button>
+          <button
+            @click="hireStaff(merch, 25)"
+            :disabled="staffCheck(merch, 25)"
+          >+25 for €{{ merch.moneyCost * 25}}</button>
         </div>
       </div>
     </div>
@@ -51,25 +69,35 @@ export default {
       this.$store.commit("unlockMerch", { merch, amount });
     },
 
-    moneycheck(money) {
+    unlockCheck(money) {
       if (this.incremental.money < money) {
-        return true
+        return true;
       }
     },
 
     hireStaff(merch, amount) {
       this.$store.dispatch("hireStaff", { merch, amount });
+    },
+
+    staffCheck(merch, amount) {
+      if (this.incremental.money < merch.moneyCost * amount) {
+        return true;
+      }
     }
+  },
+
+  mounted() {
+    this.$store.dispatch("fameIdleGains");
   }
 };
 </script>
 
 <style scoped>
-.info {
+.info, .locked {
   display: flex;
 }
 
-.info h2 {
+.info h2, .locked ul {
   align-self: center;
 }
 
@@ -82,6 +110,11 @@ img {
 .staff button {
   height: 60px;
   width: 60px;
+  margin-top: 10px;
+}
+
+.locked, .unlocked {
+  margin-bottom: 15px;
 }
 
 </style>

@@ -5,13 +5,13 @@
       <li>Skill: {{ notation(incremental.skill) }}</li>
       <li>Click power: {{ notation(incremental.clickPower) }}</li>
       <li>Idle power: {{ notation(incremental.idlePower) }}</li>
-      <li>Fame: {{ notation(incremental.fame) }}</li>
+      <li>Money: {{ notation(incremental.money) }}</li>
     </ul>
 
     <button @click="cheatSkill">Gain 1.000 skill</button>
     <button @click="cheatClickPower">Gain 100 click power</button>
     <button @click="cheatIdlePower">Gain 100 idle power</button>
-    <button @click="cheatFame">Gain 1.000 fame</button>
+    <button @click="cheatMoney">Gain 1.000 money</button>
   </div>
 </template>
 
@@ -39,8 +39,8 @@ export default {
       this.$store.dispatch("cheatIdlePower");
     },
 
-    cheatFame() {
-      this.$store.dispatch("cheatFame");
+    cheatMoney() {
+      this.$store.dispatch("cheatMoney");
     },
   }
 };

@@ -16,7 +16,8 @@
         <h2>Info</h2>
         <ul>
           <li>Click power: {{ notation(incremental.clickPower) }}</li>
-          <li>Idle gain: {{ notation(incremental.idlePower) }}</li>
+          <li>Idle skill gain: {{ notation(incremental.idlePower) }}</li>
+          <li>Idle fame gain: {{ notation(incremental.famePower) }}</li>
         </ul>
       </div>
     </div>
