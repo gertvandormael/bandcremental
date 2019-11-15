@@ -144,7 +144,7 @@ export default new Vuex.Store({
 
 		hireStaff(state, { merch, amount }) {
 			merch.staff += amount;
-			state.incremental.money -= merch.moneyCost
+			state.incremental.money -= merch.moneyCost * amount
 			state.incremental.famePower += merch.fameGain * amount
 		},
 
