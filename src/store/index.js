@@ -11,7 +11,9 @@ export default new Vuex.Store({
 			idlePower: 0,
 			famePower: 0,
 			fame: 0,
-			money: 10000
+			money: 0,
+			firstClick: false,
+			easterEgg: false
 		},
 
 		songUpgrades: [
@@ -90,6 +92,7 @@ export default new Vuex.Store({
 	mutations: {
 		increaseSkill(state) {
 			state.incremental.skill += state.incremental.clickPower;
+			state.incremental.firstClick = true;
 			state.stats.timesClicked++;
 			state.stats.skillGainClick += state.incremental.clickPower;
 		},
@@ -151,6 +154,10 @@ export default new Vuex.Store({
 		fameIdleGains(state) {
 			state.incremental.fame +=  state.incremental.famePower
 		},
+
+		easterEgg(state) {
+			state.incremental.easterEgg = true
+		}
 	},
 
 	actions: {

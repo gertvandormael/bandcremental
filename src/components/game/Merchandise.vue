@@ -1,6 +1,7 @@
 <template>
   <div class="merchandise">
     <h2>Merchandise</h2>
+    <p>Hire staff that sells your merchandise. Your fame increases for each sold item!</p>
     <div
       class="merch"
       v-for="merch in merchandising"
@@ -40,15 +41,15 @@
           <button
             @click="hireStaff(merch, 1)"
             :disabled="staffCheck(merch, 1)"
-          >+1 for €{{ merch.moneyCost * 1 }}</button>
+          >+1 staff<br> €{{ merch.moneyCost * 1 }}</button>
           <button
             @click="hireStaff(merch, 5)"
             :disabled="staffCheck(merch, 5)"
-          >+5 for €{{ merch.moneyCost * 5 }}</button>
+          >+5 staff<br> €{{ merch.moneyCost * 5 }}</button>
           <button
             @click="hireStaff(merch, 15)"
             :disabled="staffCheck(merch, 15)"
-          >+15 for €{{ merch.moneyCost * 15 }}</button>
+          >+15 staff<br> €{{ merch.moneyCost * 15 }}</button>
         </div>
       </div>
     </div>
@@ -104,6 +105,10 @@ h4 {
   color: #cbdbfc;
 }
 
+.merchandise p {
+  margin-bottom: 5px;
+}
+
 img {
   max-height: 50px;
   max-width: 50px;
@@ -112,7 +117,7 @@ img {
 
 .staff button {
   height: 60px;
-  width: 80px;
+  width: 150px;
   margin-top: 10px;
 }
 

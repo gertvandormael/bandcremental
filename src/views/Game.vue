@@ -2,13 +2,13 @@
   <div class="game">
     <Nav />
 
-    <div class="clicker">
+    <div class="clicker-and-songs">
       <Clicker />
       <SongUpgrades />
 
     </div>
 
-    <div class="container">
+    <div class="show-and-merch">
       <Shows />
       <Merchandise />
     </div>

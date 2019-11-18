@@ -85,12 +85,12 @@ button:hover:enabled {
 		justify-content: center;
 	}
 
-	.clicker {
+	.clicker-and-songs {
 		display: flex;
 		margin-bottom: 25px;
 	}
 
-	.container {
+	.show-and-merch {
 		display: flex;
 	}
 }

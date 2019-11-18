@@ -1,6 +1,7 @@
 <template>
   <div class="shows">
     <h2>Shows</h2>
+    <p>Play shows to earn money!</p>
     <div
       class="show"
       v-for="show in shows"

@@ -1,6 +1,7 @@
 <template>
   <div class="songs">
     <h2>Songs</h2>
+    <p>Increase your skill and learn new songs!</p>
     <div
       class="song"
       v-for="songUpgrade in songUpgrades"

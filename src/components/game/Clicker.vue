@@ -1,10 +1,31 @@
 <template>
   <div class="band">
+    <div class="clicker">
       <img
         src="../../assets/band.png"
         alt="band image"
         @click="increaseSkill"
       >
+      <div
+        v-if="!incremental.firstClick"
+      >
+        <div class="tutorial">
+          <p>Click the image to increase your skill!</p>
+          <img
+            src="../../assets/arrow.png"
+            alt="arrow"
+            @click="easterEgg"
+          >
+        </div>
+        <div
+          class="easteregg"
+          v-if="incremental.easterEgg"
+        >
+          Click the band not the cursor 🙂
+        </div>
+
+      </div>
+    </div>
     <div class="stats">
       <h3>Resources</h3>
       <ul class="skill">
@@ -36,6 +57,10 @@ export default {
 
     notation(number) {
       return number.toLocaleString("nl-BE");
+    },
+
+    easterEgg() {
+      this.$store.commit("easterEgg");
     }
   },
 
@@ -54,9 +79,30 @@ export default {
     width: 350px;
   }
 
+  .clicker {
+    height: 250px;
+    width: 250px;
+  }
+
   img {
     height: 250px;
     width: 250px;
+  }
+
+  .tutorial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tutorial img {
+    height: 50px;
+    width: 50px;
+    margin-top: -25px;
+  }
+
+  .tutorial p {
+    width: 150px;
   }
 
 
@@ -79,7 +125,7 @@ export default {
     }
   }
 
-  .band img:active {
+  .clicker img:active {
       animation: shake 0.10s cubic-bezier(.36,.07,.19,.97) both;
   }
 
