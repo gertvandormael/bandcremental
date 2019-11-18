@@ -1,6 +1,6 @@
 <template>
   <div class="shows">
-    <h1>Shows</h1>
+    <h2>Shows</h2>
     <div
       class="show"
       v-for="show in shows"
@@ -22,19 +22,20 @@
       </div>
       <div class="button">
         <button
-        @click="playShow(show)"
-        :disabled="show.active"
+          @click="playShow(show)"
+          :disabled="show.active"
         >
           Play show!
         </button>
-        <div class="requirements">
-          <ul>
-            <li>Gain {{ moneyGain(show.multiplier) }} money (20% of your current skill)</li>
-            <li>Has a {{ show.cooldownDuration }} seconds cooldown</li>
-          </ul>
-        </div>
+        <ul>
+          <li>Gain {{ moneyGain(show.multiplier) }} money (20% of your current skill)</li>
+          <li>Has a {{ show.cooldownDuration }} seconds cooldown</li>
+        </ul>
       </div>
-      <div class="cooldown" v-if="show.active">
+      <div
+        class="cooldown"
+        v-if="show.active"
+      >
         <h3>Cooldown: {{ currentCooldown }}</h3>
       </div>
     </div>
@@ -46,12 +47,12 @@ import { mapState } from "vuex";
 export default {
   data() {
     return {
-      currentCooldown: null,
-    }
+      currentCooldown: null
+    };
   },
 
   computed: {
-    ...mapState(["incremental", "shows"]),
+    ...mapState(["incremental", "shows"])
   },
 
   methods: {
@@ -64,19 +65,21 @@ export default {
     startCooldown(show) {
       if (this.currentCooldown > 0) {
         setTimeout(() => {
-          -- this.currentCooldown;
-          this.startCooldown(show)
+          --this.currentCooldown;
+          this.startCooldown(show);
         }, 1000);
       } else {
         this.currentCooldown = null;
-        this.$store.commit("cooldownReset", show)
+        this.$store.commit("cooldownReset", show);
       }
     },
 
     moneyGain(multiplier) {
-      return Math.round(this.incremental.skill * multiplier).toLocaleString("nl-BE")
-    },
-  },
+      return Math.round(this.incremental.skill * multiplier).toLocaleString(
+        "nl-BE"
+      );
+    }
+  }
 };
 </script>
 
@@ -84,13 +87,26 @@ export default {
   .shows {
     width: 350px;
   }
+  
+  img {
+    max-width: 250px;
+    max-width: 250px;
+  }
 
-  .info, .button {
+  .button {
+    margin-top: 5px;
     display: flex;
   }
 
-  .info h3 {
+  .button ul {
     align-self: center;
   }
+
+  @media (min-width: 998px) {
+    .shows {
+      width: 505px;
+    }
+  }
+
 
 </style>

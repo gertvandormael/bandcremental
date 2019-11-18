@@ -1,6 +1,6 @@
 <template>
   <div class="songs">
-    <h1>Songs</h1>
+    <h2>Songs</h2>
     <div
       class="song"
       v-for="songUpgrade in songUpgrades"
@@ -19,7 +19,7 @@
             alt="song unlocked"
           >
         </div>
-        <h3 :class="{ locked: !songUpgrade.songLearned }">{{ songUpgrade.name }}</h3>
+        <h4 :class="{ locked: !songUpgrade.songLearned }">{{ songUpgrade.name }}</h4>
       </div>
       <div
         class="button"
@@ -70,7 +70,7 @@ export default {
     display: flex;
   }
 
-  .info h3 {
+  .info h4 {
     align-self: center;
   }
   
@@ -98,7 +98,11 @@ export default {
   }  
 
   .song {
-    width: 350px;
+    width: 325px;
+  }
+
+  .button {
+    margin-bottom: 10px;
   }
 
   @media (min-width: 998px) { 

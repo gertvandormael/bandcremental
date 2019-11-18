@@ -1,6 +1,6 @@
 <template>
   <div class="merchandise">
-    <h1>Merchandise</h1>
+    <h2>Merchandise</h2>
     <div
       class="merch"
       v-for="merch in merchandising"
@@ -32,9 +32,11 @@
         </div>
         <div class="staff">
           <ul>
-            <li>Staff selling {{ merch.name }}: {{ merch.staff }}</li>
-            <li>Fame gained per second: {{ merch.fameGain * merch.staff }} </li>
+            <li>Fame gain per sold item: {{ merch.fameGain }} </li>
+            <li>Amount of staff members selling {{ merch.name.toLowerCase() }}: {{ merch.staff }}</li>
+            <li>Total fame gain per second by selling {{ merch.name.toLowerCase() }}: {{ merch.fameGain * merch.staff }} </li>
           </ul>
+          <h4>Hire staff</h4>
           <button
             @click="hireStaff(merch, 1)"
             :disabled="staffCheck(merch, 1)"
@@ -44,13 +46,9 @@
             :disabled="staffCheck(merch, 5)"
           >+5 for €{{ merch.moneyCost * 5 }}</button>
           <button
-            @click="hireStaff(merch, 10)"
-            :disabled="staffCheck(merch, 10)"
-          >+10 for €{{ merch.moneyCost * 10 }}</button>
-          <button
-            @click="hireStaff(merch, 25)"
-            :disabled="staffCheck(merch, 25)"
-          >+25 for €{{ merch.moneyCost * 25}}</button>
+            @click="hireStaff(merch, 15)"
+            :disabled="staffCheck(merch, 15)"
+          >+15 for €{{ merch.moneyCost * 15 }}</button>
         </div>
       </div>
     </div>
@@ -101,6 +99,11 @@ export default {
   align-self: center;
 }
 
+h4 {
+  margin-top: 10px;
+  color: #cbdbfc;
+}
+
 img {
   max-height: 50px;
   max-width: 50px;
@@ -109,7 +112,7 @@ img {
 
 .staff button {
   height: 60px;
-  width: 60px;
+  width: 80px;
   margin-top: 10px;
 }
 

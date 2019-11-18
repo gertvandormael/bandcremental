@@ -1,38 +1,30 @@
 <template>
   <div class="band">
-    <img
-      src="../../assets/band.png"
-      alt="band image"
-      @click="increaseSkill"
-    >
-    <div class="data">
-      <div class="stats">
-        <h2>Resources</h2>
-        <ul class="skill">
-          <li>Skill: {{ notation(incremental.skill) }}</li>
-          <li>Money: {{ notation(incremental.money) }}</li>
-          <li>Fame: {{ notation(incremental.fame) }} </li>
-        </ul>
-        <h2>Info</h2>
-        <ul>
-          <li>Click power: {{ notation(incremental.clickPower) }}</li>
-          <li>Idle skill gain: {{ notation(incremental.idlePower) }}</li>
-          <li>Idle fame gain: {{ notation(incremental.famePower) }}</li>
-        </ul>
-      </div>
+      <img
+        src="../../assets/band.png"
+        alt="band image"
+        @click="increaseSkill"
+      >
+    <div class="stats">
+      <h3>Resources</h3>
+      <ul class="skill">
+        <li>Skill: {{ notation(incremental.skill) }}</li>
+        <li>Money: {{ notation(incremental.money) }}</li>
+        <li>Fame: {{ notation(incremental.fame) }} </li>
+      </ul>
+      <h3>Info</h3>
+      <ul>
+        <li>Click power: {{ notation(incremental.clickPower) }}</li>
+        <li>Idle skill gain: {{ notation(incremental.idlePower) }}</li>
+        <li>Idle fame gain: {{ notation(incremental.famePower) }}</li>
+      </ul>
     </div>
-    <ClickerButtons />
   </div>
 </template>
 
 <script>
 import { mapState } from "vuex";
-import ClickerButtons from "./ClickerButtons.vue";
 export default {
-  components: {
-    ClickerButtons
-  },
-
   computed: {
     ...mapState(["incremental"])
   },
@@ -62,6 +54,12 @@ export default {
     width: 350px;
   }
 
+  img {
+    height: 250px;
+    width: 250px;
+  }
+
+
 /* Shake effect on click */
   @keyframes shake {
     10%, 90% {
@@ -89,11 +87,13 @@ export default {
   @media (min-width: 998px) {
     .band {
       display: flex;
-      justify-content: space-between;
+      height: 250px;
+      width: 500px;
     }
 
-    .data {
-      margin-left: 25px;
+    .stats {
+      align-self: center;
+      margin-left: 15px;
     }
   }
   

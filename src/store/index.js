@@ -11,7 +11,7 @@ export default new Vuex.Store({
 			idlePower: 0,
 			famePower: 0,
 			fame: 0,
-			money: 0
+			money: 10000
 		},
 
 		songUpgrades: [
@@ -57,22 +57,22 @@ export default new Vuex.Store({
 		merchandising: [
 			{
 				id: 0,
-				name: "placeholder",
+				name: "Albums",
 				fameGain: 10,
 				moneyRequired: 100,
 				moneyCost: 25,
 				staff: 0,
-				img: "placeholder.png",
+				img: "merch-cd.png",
 				unlocked: false,
 			},
 			{
 				id: 1,
-				name: "another placeholder",
+				name: "Band shirts",
 				fameGain: 50,
 				moneyRequired: 500,
 				moneyCost: 50,
 				staff: 0,
-				img: "placeholder.png",
+				img: "merch-shirt2.png",
 				unlocked: false,
 			}
 		],

@@ -4,14 +4,14 @@
 
     <div class="clicker">
       <Clicker />
+      <SongUpgrades />
+
     </div>
 
     <div class="container">
-      <SongUpgrades />
       <Shows />
+      <Merchandise />
     </div>
-
-    <Merchandise />
   </div>
 </template>
 

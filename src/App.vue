@@ -1,7 +1,7 @@
 <template>
-	<div id="app">
-		<router-view />
-	</div>
+  <div id="app">
+    <router-view />
+  </div>
 </template>
 
 <style>
@@ -13,8 +13,6 @@
 	list-style-type: none;
 }
 
-/* Positioning */
-
 /* Fonts and layout */
 body {
 	margin: 5px;
@@ -25,20 +23,23 @@ body {
 }
 
 h1 {
-	font-family: "Press Start 2P", cursive;
 	font-size: 1.7rem;
-	color: #ff6fd2;
+	color: #ff70d2;
 	margin-top: 5px;
 }
 
 h2 {
-	font-family: "Press Start 2P", cursive;
+	font-size: 1.7rem;
+	color: #ff70d2;
+	margin-top: 5px;
+}
+
+h3 {
 	font-size: 1.4rem;
 	color: #cbdbfc;
 }
 
-h3 {
-	font-family: "Press Start 2P", cursive;
+h4 {
 	font-size: 1rem;
 	color: #ff6fd2;
 }
@@ -46,28 +47,18 @@ h3 {
 .header,
 .band,
 .skill,
-.info,
-.upgrades-song,
-.button,
-.gear-upgrades,
-.shows,
-.cooldown {
-	margin-bottom: 10px;
+.songs,
+.show {
+	margin-bottom: 20px;
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3, h4 {
+	font-family: "Press Start 2P", cursive;
 	text-shadow: -2px -2px 0 #6e0054, 2px -2px 0 #6e0054, -2px 2px 0 #6e0054,
 		2px 2px 0 #6e0054;
 }
 
 /* Styling for all components */
-img {
-	max-width: 250px;
-	max-width: 250px;
-}
-
 button {
 	font-family: "Press Start 2P", cursive;
 	background: #ff6fd2;
@@ -94,12 +85,13 @@ button:hover:enabled {
 		justify-content: center;
 	}
 
-	.container {
+	.clicker {
 		display: flex;
+		margin-bottom: 25px;
 	}
 
-	.songs {
-		width: 500px;
+	.container {
+		display: flex;
 	}
 }
 </style>
