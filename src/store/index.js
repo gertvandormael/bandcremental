@@ -85,7 +85,12 @@ export default new Vuex.Store({
 			skillGainIdle: 0,
 			songsLearned: 0,
 			showsPlayed: 0,
-			moneyGainedShows: 0
+			moneyGainedShows: 0,
+			merchStaff: 0,
+			merchFameGainAlbums: 0,
+			merchStaffHiredShirts: 0,
+			merchFameGainShirts: 0
+
 		}
 	},
 
@@ -142,21 +147,22 @@ export default new Vuex.Store({
 
 		unlockMerch(state, { merch, amount }) {
 			merch.unlocked = true;
-			state.incremental.money -= amount
+			state.incremental.money -= amount;
 		},
 
 		hireStaff(state, { merch, amount }) {
 			merch.staff += amount;
-			state.incremental.money -= merch.moneyCost * amount
-			state.incremental.famePower += merch.fameGain * amount
+			state.incremental.money -= merch.moneyCost * amount;
+			state.incremental.famePower += merch.fameGain * amount;
+			state.stats.merchStaff += amount;
 		},
 
 		fameIdleGains(state) {
-			state.incremental.fame +=  state.incremental.famePower
+			state.incremental.fame +=  state.incremental.famePower;
 		},
 
 		easterEgg(state) {
-			state.incremental.easterEgg = true
+			state.incremental.easterEgg = true;
 		}
 	},
 

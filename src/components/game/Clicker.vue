@@ -21,7 +21,7 @@
           class="easteregg"
           v-if="incremental.easterEgg"
         >
-          Click the band not the cursor 🙂
+          Click the band not the cursor &#128578;
         </div>
 
       </div>
@@ -80,7 +80,7 @@ export default {
   }
 
   .clicker {
-    height: 250px;
+    height: auto;
     width: 250px;
   }
 
